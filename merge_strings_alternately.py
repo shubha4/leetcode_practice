@@ -1,6 +1,6 @@
 #Merge Strings Alternatively Problem
 
-#First Attempt
+#First Attempt - with strings
 def mergeAlternately(word1, word2):
     new_string = ""
     for i, j in zip(word1, word2):
@@ -19,5 +19,18 @@ word1 = "abcdes"
 word2 = "pqr"
 print(mergeAlternately(word1, word2))
 
-            
-        
+#Second Attempt - with list
+def mergeAlternately(word1, word2):
+    new_string_list = []
+    min_length = min(len(word1), len(word2))
+    for i in range(min_length):
+        new_string_list.append(word1[i])
+        new_string_list.append(word2[i])
+    new_string_list.extend(word1[min_length:])
+    new_string_list.extend(word2[min_length:])
+    return ''.join(new_string_list)
+
+word1 = "abcdes"
+word2 = "pqr"
+print(mergeAlternately(word1, word2))
+       
